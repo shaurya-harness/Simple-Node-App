@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_shaurya_harness_Simple_Node_App_1701161857875-push-trigger-input-set
+  identifier: Build_shaurya_harness_Simple_Node_App_1701161857875pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: CIEHackathonYAMLGen
+  pipeline:
+    identifier: Build_shaurya_harness_Simple_Node_App_1701161857875
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
