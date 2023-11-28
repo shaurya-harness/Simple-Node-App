@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_shaurya_harness_Simple_Node_App_1701161857875-pr-trigger-input-set
+  identifier: Build_shaurya_harness_Simple_Node_App_1701161857875prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: CIEHackathonYAMLGen
+  pipeline:
+    identifier: Build_shaurya_harness_Simple_Node_App_1701161857875
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
