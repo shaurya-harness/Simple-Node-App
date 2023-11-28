@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_shaurya_harness_Simple_Node_App_1701159860215-pr-trigger-input-set
+  identifier: Build_shaurya_harness_Simple_Node_App_1701159860215prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: shauryatest
+  pipeline:
+    identifier: Build_shaurya_harness_Simple_Node_App_1701159860215
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
