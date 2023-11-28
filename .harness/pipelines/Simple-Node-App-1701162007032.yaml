@@ -31,6 +31,11 @@ pipeline:
                     shell: Sh
                     command: |
                       npm install jest-junit && npm run test --reporters=default --reporters=jest-junit
+                    reports:
+                      type: JUnit
+                      spec:
+                        paths:
+                          - /test-results/*.xml
                   timeout: ""
                   type: Run
               - step:
