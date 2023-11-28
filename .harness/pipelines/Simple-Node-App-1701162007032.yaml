@@ -29,12 +29,12 @@ pipeline:
                   name: npm_test
                   spec:
                     shell: Sh
-                    command: npm install --save-dev jest-junit && npm run test -- --reporters=default --reporters=jest-junit --outputDirectory=./harness --outputName=test-report.xml
+                    command: npm run test:junit -- --outputDirectory=./harness --outputName=test-report.xml
                     reports:
                       type: JUnit
                       spec:
                         paths:
-                          - /harness/report.xml
+                          - "**/report.xml"
                   timeout: ""
                   type: Run
               - step:
