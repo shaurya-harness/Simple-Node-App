@@ -42,10 +42,19 @@ pipeline:
                       tags: latest
                   timeout: ""
                   type: Plugin
+              - step:
+                  type: Run
+                  name: test to xml
+                  identifier: test_to_xml
+                  spec:
+                    shell: Sh
+                    command: |
+                      npm install jest-junit
+                      npm run test --reporters=default --reporters=jest-junit
           platform:
-            arch: Amd64
             os: Linux
+            arch: Amd64
           runtime:
-            spec: {}
             type: Cloud
+            spec: {}
         type: CI
