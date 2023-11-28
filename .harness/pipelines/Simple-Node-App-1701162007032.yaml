@@ -29,7 +29,7 @@ pipeline:
                   name: npm_test
                   spec:
                     shell: Sh
-                    command: npm install --save-dev jest-junit && npm run test --reporters=default --reporters=jest-junit
+                    command: npm install --save-dev jest-junit && npm run test -- --reporters=default --reporters=jest-junit
                     reports:
                       type: JUnit
                       spec:
