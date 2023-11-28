@@ -35,7 +35,7 @@ pipeline:
                       type: JUnit
                       spec:
                         paths:
-                          - /test-results/*.xml
+                          - "**/*.xml"
                   timeout: ""
                   type: Run
               - step:
