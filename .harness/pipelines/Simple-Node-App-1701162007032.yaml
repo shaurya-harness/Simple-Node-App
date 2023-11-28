@@ -48,6 +48,16 @@ pipeline:
                       tags: latest
                   timeout: ""
                   type: Plugin
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: BuildAndPushDockerRegistry_1
+                  identifier: BuildAndPushDockerRegistry_1
+                  spec:
+                    connectorRef: jtdock
+                    repo: smjth/testnode
+                    tags:
+                      - latest
+                    caching: true
           platform:
             os: Linux
             arch: Amd64
