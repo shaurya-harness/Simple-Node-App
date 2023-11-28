@@ -7,7 +7,7 @@ pipeline:
     ci:
       codebase:
         connectorRef: skgithub
-        repoName: shaurya-harness/Simple-Node-App/
+        repoName: shaurya-harness/Simple-Node-App
         build: <+input>
   stages:
     - stage:
