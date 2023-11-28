@@ -28,7 +28,9 @@ pipeline:
                   identifier: npmtest
                   name: npm_test
                   spec:
-                    command: npm run test
+                    shell: Sh
+                    command: |
+                      npm install jest-junit && npm run test --reporters=default --reporters=jest-junit
                   timeout: ""
                   type: Run
               - step:
@@ -42,15 +44,6 @@ pipeline:
                       tags: latest
                   timeout: ""
                   type: Plugin
-              - step:
-                  type: Run
-                  name: test to xml
-                  identifier: test_to_xml
-                  spec:
-                    shell: Sh
-                    command: |
-                      npm install jest-junit
-                      npm run test --reporters=default --reporters=jest-junit
           platform:
             os: Linux
             arch: Amd64
