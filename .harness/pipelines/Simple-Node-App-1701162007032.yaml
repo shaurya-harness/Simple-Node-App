@@ -1,0 +1,51 @@
+pipeline:
+  identifier: Build_shaurya_harness_Simple_Node_App_1701162015992
+  name: Build Node
+  orgIdentifier: default
+  projectIdentifier: CIEHackathonYAMLGen
+  properties:
+    ci:
+      codebase:
+        build: <+input>
+        connectorRef: skgithub
+        repoName: shaurya-harness/Simple-Node-App
+  stages:
+    - stage:
+        identifier: build
+        name: build
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  identifier: npminstall
+                  name: npm_install
+                  spec:
+                    command: npm install
+                  timeout: ""
+                  type: Run
+              - step:
+                  identifier: npmtest
+                  name: npm_test
+                  spec:
+                    command: npm run test
+                  timeout: ""
+                  type: Run
+              - step:
+                  identifier: dockerbuild
+                  name: docker_build
+                  spec:
+                    image: plugins/docker
+                    settings:
+                      dry_run: "true"
+                      repo: hello/world
+                      tags: latest
+                  timeout: ""
+                  type: Plugin
+          platform:
+            arch: Amd64
+            os: Linux
+          runtime:
+            spec: {}
+            type: Cloud
+        type: CI
