@@ -6,9 +6,9 @@ pipeline:
   properties:
     ci:
       codebase:
-        build: <+input>
         connectorRef: skgithub
-        repoName: shaurya-harness/Simple-Node-App
+        repoName: shaurya-harness/ff-nodejs-server-sdk
+        build: <+input>
   stages:
     - stage:
         identifier: build
