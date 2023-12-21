@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_shaurya_harness_Simple_Node_App_1703143759813-push-trigger-input-set
+  identifier: Build_shaurya_harness_Simple_Node_App_1703143759813pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: autogen
+  pipeline:
+    identifier: Build_shaurya_harness_Simple_Node_App_1703143759813
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
