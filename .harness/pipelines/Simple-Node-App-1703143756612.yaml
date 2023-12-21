@@ -1,0 +1,67 @@
+pipeline:
+  identifier: Build_shaurya_harness_Simple_Node_App_1703143759813
+  name: Build Simple-Node-App
+  orgIdentifier: default
+  projectIdentifier: autogen
+  properties:
+    ci:
+      codebase:
+        build: <+input>
+        connectorRef: account.shauryagithub
+        repoName: shaurya-harness/Simple-Node-App
+  stages:
+    - stage:
+        identifier: build
+        name: build
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  identifier: npminstall
+                  name: npm_install
+                  spec:
+                    command: npm install
+                  timeout: ""
+                  type: Run
+              - step:
+                  identifier: npmtestreports
+                  name: npm_test_reports
+                  spec:
+                    command: npm run test:junit
+                  timeout: ""
+                  type: Run
+              - step:
+                  identifier: npmcoverage
+                  name: npm_coverage
+                  spec:
+                    command: npm run coverage
+                  timeout: ""
+                  type: Run
+              - step:
+                  identifier: npmlint
+                  name: npm_lint
+                  spec:
+                    command: npm run lint
+                  timeout: ""
+                  type: Run
+              - step:
+                  identifier: dockerbuild
+                  name: docker_build
+                  spec:
+                    image: plugins/docker
+                    settings:
+                      dry_run: "true"
+                      password: <+input>
+                      repo: hello/world
+                      tags: latest
+                      username: <+input>
+                  timeout: ""
+                  type: Plugin
+          platform:
+            arch: Amd64
+            os: Linux
+          runtime:
+            spec: {}
+            type: Cloud
+        type: CI
