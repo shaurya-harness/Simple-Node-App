@@ -6,9 +6,9 @@ pipeline:
   properties:
     ci:
       codebase:
-        build: <+input>
         connectorRef: account.shauryagithub
-        repoName: shaurya-harness/Simple-Node-App
+        repoName: Simple-Node-App
+        build: <+input>
   stages:
     - stage:
         identifier: build
